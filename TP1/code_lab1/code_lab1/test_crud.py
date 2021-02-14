@@ -52,9 +52,11 @@ class TestCRUD(unittest.TestCase):
     ):
         mock_read_users_file.return_value=self.users_data
         mock_modify_users_file.return_value= True
+
         crud=CRUD()
         email="test@email.com"
         date="2003-09-13"
+
         crud.add_new_user(email,date)
         mock_modify_users_file.assert_called_once_with(self.users_data)
 
